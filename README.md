@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# マネーサプリ - 金融学習アプリケーション
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+マネーサプリは、株式投資や投資信託などの金融知識を効果的に学ぶための初心者向けWebアプリケーションです。実践的な知識提供とシミュレーション機能を備え、ユーザーが楽しみながら金融リテラシーを高められる環境を提供します。
 
-## Available Scripts
+![マネーサプリスクリーンショット](screenshot.png)
 
-In the project directory, you can run:
+## 🌟 主な機能
 
-### `npm start`
+- **学習コンテンツ**: 株式、債券、投資信託、ETFなどの基本概念を学べるレッスン
+- **仮想投資シミュレーター**: 仮想資金で実際の市場データに基づく投資体験
+- **ポートフォリオ分析**: 資産配分やパフォーマンスの可視化
+- **税金計算ツール**: 投資に伴う税金の計算
+- **進捗管理**: 学習の進捗状況や目標の管理
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 使用技術
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **フロントエンド**: React.js (version 19)
+- **スタイリング**: TailwindCSS
+- **ルーティング**: React Router v7
+- **状態管理**: React Context API
+- **データの永続化**: LocalStorage
+- **グラフ・可視化**: Recharts
+- **マークダウンレンダリング**: React Markdown
 
-### `npm test`
+## 🔧 インストールと使用方法
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### ローカル開発環境のセットアップ
 
-### `npm run build`
+```bash
+# リポジトリのクローン
+git clone https://github.com/souta-pqr/money-suppli.git
+cd money-suppli
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# 依存関係のインストール
+npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# 開発サーバーの起動
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+アプリケーションは http://localhost:3000 で実行されます。
 
-### `npm run eject`
+### ビルドと本番用デプロイ
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+# プロジェクトのビルド
+npm run build
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# GitHub Pagesへのデプロイ
+npm run deploy
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+または、提供されているデプロイスクリプトを使用することもできます：
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+./deploy.sh
+```
 
-## Learn More
+## 💡 プロジェクト構造
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+money-suppli/
+├── public/               # 静的ファイル
+├── src/                  # ソースコード
+│   ├── assets/           # 画像等の静的アセット
+│   ├── components/       # Reactコンポーネント
+│   │   ├── common/       # 共通コンポーネント
+│   │   ├── layout/       # レイアウト関連
+│   │   └── pages/        # ページコンポーネント
+│   ├── context/          # Reactコンテキスト
+│   ├── data/             # 静的データ
+│   ├── hooks/            # カスタムフック
+│   ├── routes/           # ルーティング
+│   └── services/         # ユーティリティ/サービス
+├── package.json          # 依存関係と設定
+└── tailwind.config.js    # Tailwind CSS設定
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📱 デモ
 
-### Code Splitting
+アプリケーションのライブデモは以下のURLで確認できます：
+[https://souta-pqr.github.io/money-suppli/](https://souta-pqr.github.io/money-suppli/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📚 主な学習コンテンツ
 
-### Analyzing the Bundle Size
+- 金融の基礎知識
+- 株式投資の基本
+- リスクとリターンの関係
+- 分散投資の重要性
+- 長期投資の効果
+- 税金と投資
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🛠 今後の拡張予定
 
-### Making a Progressive Web App
+- ユーザーアカウント機能（Firebase連携）
+- リアルタイム市場データのAPI連携
+- カスタマイズ可能な学習パス
+- モバイルアプリバージョン
+- ソーシャル機能（学習グループ）
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🤝 貢献
 
-### Advanced Configuration
+貢献は大歓迎です！バグ報告、機能リクエスト、またはプルリクエストを気軽に送ってください。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📄 ライセンス
 
-### Deployment
+このプロジェクトはMITライセンスの下で公開されています。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+お金と投資について楽しく学び、実践的なスキルを身につけましょう！
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+© 2025 マネーサプリ
