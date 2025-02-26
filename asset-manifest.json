@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/money-suppli/static/css/main.367b45ab.css",
+    "main.js": "/money-suppli/static/js/main.1bcc0d93.js",
+    "static/js/453.5079c100.chunk.js": "/money-suppli/static/js/453.5079c100.chunk.js",
+    "index.html": "/money-suppli/index.html",
+    "main.367b45ab.css.map": "/money-suppli/static/css/main.367b45ab.css.map",
+    "main.1bcc0d93.js.map": "/money-suppli/static/js/main.1bcc0d93.js.map",
+    "453.5079c100.chunk.js.map": "/money-suppli/static/js/453.5079c100.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.367b45ab.css",
+    "static/js/main.1bcc0d93.js"
+  ]
+}
