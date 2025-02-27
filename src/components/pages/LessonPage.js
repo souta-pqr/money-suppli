@@ -10,27 +10,35 @@ const LessonPage = () => {
   const { completeLesson, saveQuizResult } = useUser();
   const [quizAnswers, setQuizAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
+  const [currentCourse, setCurrentCourse] = useState(null);
+  const [currentLesson, setCurrentLesson] = useState(null);
+  const [prevLesson, setPrevLesson] = useState(null);
+  const [nextLesson, setNextLesson] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
   
-  // コースとレッスンのデータを取得
-  const course = courses.find(c => c.id === parseInt(courseId));
-  if (!course) {
-    return <div className="p-6 bg-white rounded-lg shadow">コースが見つかりません</div>;
-  }
-  
-  const lesson = course.lessons.find(l => l.id === parseInt(lessonId));
-  if (!lesson) {
-    return <div className="p-6 bg-white rounded-lg shadow">レッスンが見つかりません</div>;
-  }
-  
-  // 次のレッスンと前のレッスンを取得
-  const currentIndex = course.lessons.findIndex(l => l.id === parseInt(lessonId));
-  const prevLesson = currentIndex > 0 ? course.lessons[currentIndex - 1] : null;
-  const nextLesson = currentIndex < course.lessons.length - 1 ? course.lessons[currentIndex + 1] : null;
+  // コースとレッスンのデータを設定
+  useEffect(() => {
+    const foundCourse = courses.find(c => c.id === parseInt(courseId));
+    if (foundCourse) {
+      setCurrentCourse(foundCourse);
+      
+      const foundLesson = foundCourse.lessons.find(l => l.id === parseInt(lessonId));
+      if (foundLesson) {
+        setCurrentLesson(foundLesson);
+        
+        const idx = foundCourse.lessons.findIndex(l => l.id === parseInt(lessonId));
+        setCurrentIndex(idx);
+        
+        setPrevLesson(idx > 0 ? foundCourse.lessons[idx - 1] : null);
+        setNextLesson(idx < foundCourse.lessons.length - 1 ? foundCourse.lessons[idx + 1] : null);
+      }
+    }
+  }, [courseId, lessonId]);
   
   // レッスン完了時の処理
   useEffect(() => {
-    if (showResults && quizAnswers) {
-      const quizQuestions = lesson.quiz || [];
+    if (showResults && quizAnswers && currentLesson) {
+      const quizQuestions = currentLesson.quiz || [];
       
       if (quizQuestions.length > 0) {
         let correctCount = 0;
@@ -52,7 +60,7 @@ const LessonPage = () => {
         completeLesson(courseId, lessonId);
       }
     }
-  }, [showResults, quizAnswers, courseId, lessonId, completeLesson, saveQuizResult, lesson.quiz]);
+  }, [showResults, quizAnswers, courseId, lessonId, completeLesson, saveQuizResult, currentLesson]);
   
   // クイズの回答を処理
   const handleQuizAnswer = (questionIndex, optionIndex) => {
@@ -76,34 +84,42 @@ const LessonPage = () => {
     }
   };
   
+  if (!currentCourse) {
+    return <div className="p-6 bg-white rounded-lg shadow">コースが見つかりません</div>;
+  }
+  
+  if (!currentLesson) {
+    return <div className="p-6 bg-white rounded-lg shadow">レッスンが見つかりません</div>;
+  }
+  
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div className="flex items-center">
           <Link to={`/learn`} className="mr-2 text-gray-500">
-            &lt; {course.title}
+            &lt; {currentCourse.title}
           </Link>
         </div>
         <div className="text-sm font-medium">
-          {currentIndex + 1}/{course.lessons.length}レッスン
+          {currentIndex + 1}/{currentCourse.lessons.length}レッスン
         </div>
       </div>
       
       <div className="bg-white shadow rounded-lg p-6">
         <h3 className="text-lg font-medium p-2 bg-blue-50 border-l-4 border-primary mb-6">
-          レッスン{currentIndex + 1}: {lesson.title}
+          レッスン{currentIndex + 1}: {currentLesson.title}
         </h3>
         
         <div className="prose max-w-none">
-          <ReactMarkdown>{lesson.content}</ReactMarkdown>
+          <ReactMarkdown>{currentLesson.content}</ReactMarkdown>
         </div>
       </div>
       
-      {lesson.quiz && lesson.quiz.length > 0 && (
+      {currentLesson.quiz && currentLesson.quiz.length > 0 && (
         <div className="bg-white shadow rounded-lg p-6">
           <h3 className="text-lg font-medium mb-4">クイズ</h3>
           
-          {lesson.quiz.map((q, qIndex) => (
+          {currentLesson.quiz.map((q, qIndex) => (
             <div key={qIndex} className="mb-6">
               <p className="font-medium mb-2">{q.question}</p>
               <div className="space-y-2">
@@ -135,7 +151,7 @@ const LessonPage = () => {
           ) : (
             <div className="mt-4 p-4 rounded bg-blue-50">
               <p className="font-medium">
-                {lesson.quiz.every((q, i) => quizAnswers[i] === q.answer) 
+                {currentLesson.quiz.every((q, i) => quizAnswers[i] === q.answer) 
                   ? '素晴らしい！すべて正解です！' 
                   : '間違いがあります。もう一度確認しましょう。'}
               </p>
