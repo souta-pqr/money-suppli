@@ -42,9 +42,12 @@ const CourseCard = ({ course, progress, nextLesson }) => {
             </Link>
           )}
           
-          <button className="text-primary hover:text-primary-dark text-sm font-medium">
+          <Link 
+            to={`/learn/${course.id}`}
+            className="text-primary hover:text-primary-dark text-sm font-medium"
+          >
             詳細を見る
-          </button>
+          </Link>
         </div>
       </div>
     </div>
