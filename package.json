@@ -1,7 +1,7 @@
 {
   "name": "money-suppli",
   "version": "0.1.0",
-  "homepage": "https://souta-pqr.github.io/money-suppli",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
