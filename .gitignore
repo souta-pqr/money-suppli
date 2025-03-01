@@ -24,3 +24,6 @@ yarn-error.log*
 
 # study
 /study
+
+# firebase
+/src/firebase
