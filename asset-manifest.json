@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/money-suppli/static/css/main.769b8f4d.css",
-    "main.js": "/money-suppli/static/js/main.5c6a4156.js",
+    "main.js": "/money-suppli/static/js/main.0a1eaa4e.js",
     "static/js/453.5079c100.chunk.js": "/money-suppli/static/js/453.5079c100.chunk.js",
     "index.html": "/money-suppli/index.html",
     "main.769b8f4d.css.map": "/money-suppli/static/css/main.769b8f4d.css.map",
-    "main.5c6a4156.js.map": "/money-suppli/static/js/main.5c6a4156.js.map",
+    "main.0a1eaa4e.js.map": "/money-suppli/static/js/main.0a1eaa4e.js.map",
     "453.5079c100.chunk.js.map": "/money-suppli/static/js/453.5079c100.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.769b8f4d.css",
-    "static/js/main.5c6a4156.js"
+    "static/js/main.0a1eaa4e.js"
   ]
 }
