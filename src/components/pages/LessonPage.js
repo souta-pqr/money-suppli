@@ -93,7 +93,7 @@ const LessonPage = () => {
   }
   
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-full">
       <div className="flex justify-between items-center">
         <div className="flex items-center">
           <Link to={`/learn`} className="mr-2 text-gray-500">
@@ -110,7 +110,7 @@ const LessonPage = () => {
           レッスン{currentIndex + 1}: {currentLesson.title}
         </h3>
         
-        <div className="prose max-w-none">
+        <div className="prose max-w-full w-full">
           <ReactMarkdown>{currentLesson.content}</ReactMarkdown>
         </div>
       </div>

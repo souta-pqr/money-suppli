@@ -19,7 +19,8 @@ code {
 
 /* カスタムスタイル */
 .prose {
-  max-width: 65ch;
+  max-width: 100% !important; /* 最大幅の制限を完全に解除 */
+  width: 100%;
   color: #374151;
   line-height: 1.8;
 }
@@ -41,4 +42,35 @@ code {
   margin-bottom: 1.25em;
   list-style-type: disc;
   padding-left: 1.625em;
+}
+
+/* レッスンコンテナのスタイル改善 */
+.lesson-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+}
+
+/* テーブルのスタイル改善 */
+.prose table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.prose table td,
+.prose table th {
+  padding: 0.625em;
+  border: 1px solid #e5e7eb;
+  word-break: break-word;
+}
+
+/* 画像のレスポンシブ対応 */
+.prose img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
 }
