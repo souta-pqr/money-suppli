@@ -24,9 +24,60 @@ export const UserProvider = ({ children }) => {
         try {
           // ユーザーがログインしている場合、Firestoreからデータを取得
           const data = await getUserData(user.uid);
-          setUserData(data);
+          
+          // データがない場合は初期データを生成
+          if (!data) {
+            // 初期ユーザーデータを作成
+            const initialData = {
+              uid: user.uid,
+              name: user.displayName || 'ゲスト',
+              email: user.email,
+              learning: {
+                completedLessons: [],
+                progress: {},
+                quizResults: {}
+              },
+              portfolio: {
+                cash: 1000000,
+                stocks: [],
+                transactions: [],
+                history: [
+                  {
+                    date: new Date().toISOString(),
+                    value: 1000000
+                  }
+                ]
+              },
+              settings: {
+                theme: 'light',
+                notifications: true
+              }
+            };
+            
+            // Firestoreに保存
+            try {
+              await setDoc(doc(db, "users", user.uid), initialData);
+              setUserData(initialData);
+            } catch (error) {
+              console.error("Failed to create initial user data:", error);
+              // エラーでも最低限のデータを設定
+              setUserData(initialData);
+            }
+          } else {
+            setUserData(data);
+          }
         } catch (error) {
           console.error("Failed to fetch user data:", error);
+          // エラーが発生しても最低限のデータを設定して白画面を防ぐ
+          setUserData({
+            user: { name: user.displayName || 'ゲスト' },
+            learning: { completedLessons: [] },
+            portfolio: { 
+              cash: 1000000, 
+              stocks: [],
+              history: [{ date: new Date().toISOString(), value: 1000000 }]
+            }
+          });
         }
       } else {
         // ログアウト時はuserDataをクリア

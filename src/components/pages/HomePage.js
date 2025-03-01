@@ -9,9 +9,10 @@ const HomePage = () => {
 
   // 全体の学習進捗率を計算
   const calculateOverallProgress = () => {
-    if (loading || !userData) return 0;
-
-    const completedLessons = userData.learning.completedLessons.length;
+    if (loading || !userData || !userData.learning) return 0;
+    
+    // ここでnullチェックを追加
+    const completedLessons = userData.learning.completedLessons ? userData.learning.completedLessons.length : 0;
     const totalLessons = courses.reduce((sum, course) => sum + course.lessonsCount, 0);
     
     return totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
