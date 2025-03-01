@@ -1,0 +1,71 @@
+# マネーサプリ - 金融学習アプリケーション
+
+マネーサプリは、ほぼ自分の勉強用です．
+
+## 🔧 インストールと使用方法
+
+### ローカル開発環境のセットアップ
+
+```bash
+# リポジトリのクローン
+git clone https://github.com/souta-pqr/money-suppli.git
+cd money-suppli
+
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動
+npm start
+```
+
+アプリケーションは http://localhost:3000 で実行されます。
+
+### ビルドと本番用デプロイ
+
+```bash
+# プロジェクトのビルド
+npm run build
+
+# GitHub Pagesへのデプロイ
+npm run deploy
+```
+
+または、提供されているデプロイスクリプトを使用することもできます：
+
+```bash
+./deploy.sh
+```
+
+## 💡 プロジェクト構造
+
+```
+money-suppli/
+├── public/               # 静的ファイル
+├── src/                  # ソースコード
+│   ├── assets/           # 画像等の静的アセット
+│   ├── components/       # Reactコンポーネント
+│   │   ├── common/       # 共通コンポーネント
+│   │   ├── layout/       # レイアウト関連
+│   │   └── pages/        # ページコンポーネント
+│   ├── context/          # Reactコンテキスト
+│   ├── data/             # 静的データ
+│   ├── hooks/            # カスタムフック
+│   ├── routes/           # ルーティング
+│   └── services/         # ユーティリティ/サービス
+├── package.json          # 依存関係と設定
+└── tailwind.config.js    # Tailwind CSS設定
+```
+
+## 📱 デモ
+
+アプリケーションのライブデモは以下のURLで確認できます：
+[https://souta-pqr.github.io/money-suppli/](https://souta-pqr.github.io/money-suppli/)
+
+
+## 📄 ライセンス
+
+このプロジェクトはMITライセンスの下で公開されています。
+
+---
+
+お金と投資について楽しく学び、実践的なスキルを身につけましょう！
