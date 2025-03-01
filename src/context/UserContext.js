@@ -1,136 +1,185 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { loadUserData, saveUserData, createInitialData } from '../services/storage';
-import { courses } from '../data/learningContent';
+import { subscribeToAuthChanges, getUserData } from '../firebase/auth';
+import { 
+  updateCompletedLesson, 
+  saveQuizResult as saveQuizResultFirestore, 
+  updatePortfolio as updatePortfolioFirestore,
+  updateUserName as updateUserNameFirestore,
+  updateSettings as updateSettingsFirestore
+} from '../firebase/firestore';
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // 初期データの読み込み
+  // Firebase 認証状態を監視
   useEffect(() => {
-    const initializeData = () => {
-      const savedData = loadUserData();
-      if (savedData) {
-        setUserData(savedData);
+    const unsubscribe = subscribeToAuthChanges(async (user) => {
+      setCurrentUser(user);
+      
+      if (user) {
+        try {
+          // ユーザーがログインしている場合、Firestoreからデータを取得
+          const data = await getUserData(user.uid);
+          setUserData(data);
+        } catch (error) {
+          console.error("Failed to fetch user data:", error);
+        }
       } else {
-        const initialData = createInitialData();
-        setUserData(initialData);
-        saveUserData(initialData);
+        // ログアウト時はuserDataをクリア
+        setUserData(null);
       }
+      
       setLoading(false);
-    };
-
-    initializeData();
+    });
+    
+    // クリーンアップ関数
+    return () => unsubscribe();
   }, []);
 
-  // データ更新時に保存
-  useEffect(() => {
-    if (userData && !loading) {
-      saveUserData(userData);
-    }
-  }, [userData, loading]);
-
-  // ユーザー名の更新
-  const updateUserName = (name) => {
-    setUserData(prev => ({
-      ...prev,
-      user: {
-        ...prev.user,
-        name
-      }
-    }));
-  };
-
   // レッスン完了を記録
-  const completeLesson = (courseId, lessonId) => {
-    setUserData(prev => {
-      const newCompletedLessons = [...prev.learning.completedLessons];
-      const lessonKey = `${courseId}-${lessonId}`;
+  const completeLesson = async (courseId, lessonId) => {
+    if (!currentUser) return;
+    
+    try {
+      await updateCompletedLesson(currentUser.uid, courseId, lessonId);
       
-      if (!newCompletedLessons.includes(lessonKey)) {
-        newCompletedLessons.push(lessonKey);
-      }
-      
-      // コースの進捗率を更新
-      const courseProgress = { ...prev.learning.progress };
-      const course = courses.find(c => c.id === parseInt(courseId));
-      
-      if (course) {
-        const totalLessons = course.lessons.length;
-        const completedCount = newCompletedLessons.filter(l => l.startsWith(`${courseId}-`)).length;
-        courseProgress[courseId] = (completedCount / totalLessons) * 100;
-      }
-      
-      return {
-        ...prev,
-        learning: {
-          ...prev.learning,
-          completedLessons: newCompletedLessons,
-          progress: courseProgress
+      // ローカルステートも更新
+      setUserData(prev => {
+        if (!prev) return prev;
+        
+        const newCompletedLessons = [...prev.learning.completedLessons];
+        const lessonKey = `${courseId}-${lessonId}`;
+        
+        if (!newCompletedLessons.includes(lessonKey)) {
+          newCompletedLessons.push(lessonKey);
         }
-      };
-    });
+        
+        return {
+          ...prev,
+          learning: {
+            ...prev.learning,
+            completedLessons: newCompletedLessons
+          }
+        };
+      });
+    } catch (error) {
+      console.error("Failed to complete lesson:", error);
+    }
   };
 
   // クイズ結果を保存
-  const saveQuizResult = (courseId, lessonId, correct, total) => {
-    setUserData(prev => {
-      const quizResults = { ...prev.learning.quizResults };
-      const resultKey = `${courseId}-${lessonId}`;
+  const saveQuizResult = async (courseId, lessonId, correct, total) => {
+    if (!currentUser) return;
+    
+    try {
+      await saveQuizResultFirestore(currentUser.uid, courseId, lessonId, correct, total);
       
-      quizResults[resultKey] = {
-        correct,
-        total,
-        timestamp: new Date().toISOString()
-      };
-      
-      return {
-        ...prev,
-        learning: {
-          ...prev.learning,
-          quizResults
-        }
-      };
-    });
+      // ローカルステートも更新
+      setUserData(prev => {
+        if (!prev) return prev;
+        
+        const quizResults = { ...prev.learning.quizResults };
+        const resultKey = `${courseId}-${lessonId}`;
+        
+        quizResults[resultKey] = {
+          correct,
+          total,
+          timestamp: new Date().toISOString()
+        };
+        
+        return {
+          ...prev,
+          learning: {
+            ...prev.learning,
+            quizResults
+          }
+        };
+      });
+    } catch (error) {
+      console.error("Failed to save quiz result:", error);
+    }
   };
 
   // ポートフォリオ更新
-  const updatePortfolio = (newPortfolioData) => {
-    setUserData(prev => ({
-      ...prev,
-      portfolio: {
-        ...newPortfolioData,
-        history: [
-          ...prev.portfolio.history,
-          {
-            date: new Date().toISOString(),
-            value: newPortfolioData.cash + newPortfolioData.stocks.reduce((sum, stock) => sum + (stock.price * stock.quantity), 0)
+  const updatePortfolio = async (newPortfolioData) => {
+    if (!currentUser) return;
+    
+    try {
+      await updatePortfolioFirestore(currentUser.uid, newPortfolioData);
+      
+      // ローカルステートも更新
+      setUserData(prev => {
+        if (!prev) return prev;
+        
+        return {
+          ...prev,
+          portfolio: {
+            ...newPortfolioData,
+            history: [
+              ...prev.portfolio.history,
+              {
+                date: new Date().toISOString(),
+                value: newPortfolioData.cash + newPortfolioData.stocks.reduce((sum, stock) => 
+                  sum + (stock.price * stock.quantity), 0)
+              }
+            ]
           }
-        ]
-      }
-    }));
+        };
+      });
+    } catch (error) {
+      console.error("Failed to update portfolio:", error);
+    }
+  };
+
+  // ユーザー名の更新
+  const updateUserName = async (name) => {
+    if (!currentUser) return;
+    
+    try {
+      await updateUserNameFirestore(currentUser.uid, name);
+      
+      // ローカルステートも更新
+      setUserData(prev => ({
+        ...prev,
+        name
+      }));
+    } catch (error) {
+      console.error("Failed to update user name:", error);
+    }
   };
 
   // 設定の更新
-  const updateSettings = (newSettings) => {
-    setUserData(prev => ({
-      ...prev,
-      settings: {
-        ...prev.settings,
-        ...newSettings
-      }
-    }));
+  const updateSettings = async (newSettings) => {
+    if (!currentUser) return;
+    
+    try {
+      await updateSettingsFirestore(currentUser.uid, newSettings);
+      
+      // ローカルステートも更新
+      setUserData(prev => ({
+        ...prev,
+        settings: {
+          ...prev.settings,
+          ...newSettings
+        }
+      }));
+    } catch (error) {
+      console.error("Failed to update settings:", error);
+    }
   };
 
   const value = {
+    currentUser,
     userData,
     loading,
-    updateUserName,
     completeLesson,
     saveQuizResult,
     updatePortfolio,
+    updateUserName,
     updateSettings
   };
 
