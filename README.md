@@ -1,3 +1,3 @@
 ## 📱 デモ
 
-[こちら](money-suppli-e6fb2.web.app)
+money-suppli-e6fb2.web.app
