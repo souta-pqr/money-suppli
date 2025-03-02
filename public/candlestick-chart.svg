@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- タイトル -->
+  <text x="400" y="40" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">ローソク足チャート</text>
+  
+  <!-- グラフ領域 -->
+  <rect x="50" y="80" width="700" height="350" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Y軸 -->
+  <line x1="50" y1="80" x2="50" y2="430" stroke="#4a5568" stroke-width="1.5"/>
+  
+  <!-- Y軸目盛り -->
+  <line x1="45" y1="130" x2="50" y2="130" stroke="#4a5568" stroke-width="1"/>
+  <text x="40" y="135" font-family="sans-serif" font-size="12" text-anchor="end">650</text>
+  
+  <line x1="45" y1="180" x2="50" y2="180" stroke="#4a5568" stroke-width="1"/>
+  <text x="40" y="185" font-family="sans-serif" font-size="12" text-anchor="end">600</text>
+  
+  <line x1="45" y1="230" x2="50" y2="230" stroke="#4a5568" stroke-width="1"/>
+  <text x="40" y="235" font-family="sans-serif" font-size="12" text-anchor="end">550</text>
+  
+  <line x1="45" y1="280" x2="50" y2="280" stroke="#4a5568" stroke-width="1"/>
+  <text x="40" y="285" font-family="sans-serif" font-size="12" text-anchor="end">500</text>
+  
+  <line x1="45" y1="330" x2="50" y2="330" stroke="#4a5568" stroke-width="1"/>
+  <text x="40" y="335" font-family="sans-serif" font-size="12" text-anchor="end">450</text>
+  
+  <line x1="45" y1="380" x2="50" y2="380" stroke="#4a5568" stroke-width="1"/>
+  <text x="40" y="385" font-family="sans-serif" font-size="12" text-anchor="end">400</text>
+  
+  <!-- X軸 -->
+  <line x1="50" y1="430" x2="750" y2="430" stroke="#4a5568" stroke-width="1.5"/>
+  
+  <!-- ローソク足 -->
+  <!-- 4/1 -->
+  <line x1="80" y1="200" x2="80" y2="250" stroke="#000000" stroke-width="1"/>
+  <rect x="70" y="220" width="20" height="30" fill="#48bb78" stroke="#000000" stroke-width="1"/>
+  <text x="80" y="450" font-family="sans-serif" font-size="12" text-anchor="middle">4/1</text>
+  
+  <!-- 4/2 -->
+  <line x1="130" y1="230" x2="130" y2="280" stroke="#000000" stroke-width="1"/>
+  <rect x="120" y="230" width="20" height="50" fill="#e53e3e" stroke="#000000" stroke-width="1"/>
+  <text x="130" y="450" font-family="sans-serif" font-size="12" text-anchor="middle">4/2</text>
+  
+  <!-- 4/3 -->
+  <line x1="180" y1="180" x2="180" y2="250" stroke="#000000" stroke-width="1"/>
+  <rect x="170" y="180" width="20" height="70" fill="#48bb78" stroke="#000000" stroke-width="1"/>
+  <text x="180" y="450" font-family="sans-serif" font-size="12" text-anchor="middle">4/3</text>
+  
+  <!-- 4/4 -->
+  <line x1="230" y1="180" x2="230" y2="250" stroke="#000000" stroke-width="1"/>
+  <rect x="220" y="200" width="20" height="50" fill="#e53e3e" stroke="#000000" stroke-width="1"/>
+  <text x="230" y="450" font-family="sans-serif" font-size="12" text-anchor="middle">4/4</text>
+  
+  <!-- 4/5 -->
+  <line x1="280" y1="160" x2="280" y2="230" stroke="#000000" stroke-width="1"/>
+  <rect x="270" y="160" width="20" height="70" fill="#48bb78" stroke="#000000" stroke-width="1"/>
+  <text x="280" y="450" font-family="sans-serif" font-size="12" text-anchor="middle">4/5</text>
+  
+  <!-- 4/8 -->
+  <line x1="330" y1="160" x2="330" y2="220" stroke="#000000" stroke-width="1"/>
+  <rect x="320" y="180" width="20" height="40" fill="#e53e3e" stroke="#000000" stroke-width="1"/>
+  <text x="330" y="450" font-family="sans-serif" font-size="12" text-anchor="middle">4/8</text>
+  
+  <!-- 4/9 -->
+  <line x1="380" y1="180" x2="380" y2="230" stroke="#000000" stroke-width="1"/>
+  <rect x="370" y="200" width="20" height="30" fill="#48bb78" stroke="#000000" stroke-width="1"/>
+  <text x="380" y="450" font-family="sans-serif" font-size="12" text-anchor="middle">4/9</text>
+  
+  <!-- 4/10 -->
+  <line x1="430" y1="200" x2="430" y2="250" stroke="#000000" stroke-width="1"/>
+  <rect x="420" y="220" width="20" height="30" fill="#e53e3e" stroke="#000000" stroke-width="1"/>
+  <text x="430" y="450" font-family="sans-serif" font-size="12" text-anchor="middle">4/10</text>
+  
+  <!-- 4/11 -->
+  <line x1="480" y1="250" x2="480" y2="300" stroke="#000000" stroke-width="1"/>
+  <rect x="470" y="250" width="20" height="50" fill="#e53e3e" stroke="#000000" stroke-width="1"/>
+  <text x="480" y="450" font-family="sans-serif" font-size="12" text-anchor="middle">4/11</text>
+  
+  <!-- 4/12 -->
+  <line x1="530" y1="200" x2="530" y2="250" stroke="#000000" stroke-width="1"/>
+  <rect x="520" y="200" width="20" height="50" fill="#48bb78" stroke="#000000" stroke-width="1"/>
+  <text x="530" y="450" font-family="sans-serif" font-size="12" text-anchor="middle">4/12</text>
+  
+  <!-- 4/15 -->
+  <line x1="580" y1="160" x2="580" y2="230" stroke="#000000" stroke-width="1"/>
+  <rect x="570" y="160" width="20" height="70" fill="#48bb78" stroke="#000000" stroke-width="1"/>
+  <text x="580" y="450" font-family="sans-serif" font-size="12" text-anchor="middle">4/15</text>
+  
+  <!-- 点線で接続 -->
+  <path d="M 80 220 L 130 250 L 180 200 L 230 225 L 280 180 L 330 190 L 380 215 L 430 235 L 480 275 L 530 225 L 580 180" 
+        stroke="#718096" stroke-width="1" stroke-dasharray="3,3" fill="none"/>
+  
+  <!-- 凡例 -->
+  <rect x="600" y="120" width="20" height="30" fill="#48bb78" stroke="#000000" stroke-width="1"/>
+  <text x="630" y="140" font-family="sans-serif" font-size="14" dominant-baseline="middle">陽線: 終値 > 始値（上昇）</text>
+  
+  <rect x="600" y="170" width="20" height="30" fill="#e53e3e" stroke="#000000" stroke-width="1"/>
+  <text x="630" y="190" font-family="sans-serif" font-size="14" dominant-baseline="middle">陰線: 終値 < 始値（下落）</text>
+</svg>

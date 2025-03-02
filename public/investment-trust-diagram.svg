@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350">
+  <!-- 背景 -->
+  <rect width="700" height="350" fill="#f8f9fa" rx="10" ry="10" />
+  
+  <!-- タイトル -->
+  <text x="350" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">投資信託の仕組み</text>
+  
+  <!-- 投資家グループ (左側) -->
+  <g transform="translate(80, 130)">
+    <circle cx="0" cy="-40" r="15" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.5" />
+    <circle cx="-20" cy="0" r="15" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.5" />
+    <circle cx="20" cy="0" r="15" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.5" />
+    <circle cx="-30" cy="40" r="15" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.5" />
+    <circle cx="10" cy="40" r="15" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.5" />
+    <text x="0" y="80" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#1976d2">投資家</text>
+  </g>
+  
+  <!-- 投資信託 (中央) -->
+  <g transform="translate(350, 160)">
+    <rect x="-70" y="-50" width="140" height="100" rx="8" ry="8" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" />
+    <text x="0" y="-20" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#388e3c">投資信託</text>
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#388e3c">信託財産</text>
+    <text x="0" y="25" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#388e3c">(資金のプール)</text>
+  </g>
+  
+  <!-- 運用会社 (上部) -->
+  <g transform="translate(350, 60)">
+    <rect x="-60" y="-25" width="120" height="50" rx="8" ry="8" fill="#fff3e0" stroke="#e64a19" stroke-width="2" />
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#e64a19">運用会社</text>
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#e64a19">(ファンドマネージャー)</text>
+  </g>
+  
+  <!-- 受託会社 (下部) -->
+  <g transform="translate(350, 260)">
+    <rect x="-60" y="-25" width="120" height="50" rx="8" ry="8" fill="#e1f5fe" stroke="#0288d1" stroke-width="2" />
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#0288d1">受託会社</text>
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0288d1">(信託銀行)</text>
+  </g>
+  
+  <!-- 販売会社 (中央左) -->
+  <g transform="translate(200, 160)">
+    <rect x="-50" y="-25" width="100" height="50" rx="8" ry="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" />
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#7b1fa2">販売会社</text>
+  </g>
+  
+  <!-- 投資対象 (右側) -->
+  <g transform="translate(550, 115)">
+    <rect x="-50" y="-25" width="100" height="50" rx="8" ry="8" fill="#ffebee" stroke="#c62828" stroke-width="2" />
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#c62828">株式</text>
+  </g>
+  
+  <g transform="translate(550, 185)">
+    <rect x="-50" y="-25" width="100" height="50" rx="8" ry="8" fill="#ede7f6" stroke="#512da8" stroke-width="2" />
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#512da8">債券</text>
+  </g>
+  
+  <g transform="translate(550, 255)">
+    <rect x="-50" y="-25" width="100" height="50" rx="8" ry="8" fill="#e0f2f1" stroke="#00796b" stroke-width="2" />
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#00796b">その他資産</text>
+  </g>
+  
+  <!-- 矢印と流れ -->
+  <!-- 投資家 → 販売会社 -->
+  <path d="M120,160 L150,160" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <text x="135" y="150" font-family="Arial, sans-serif" font-size="10" fill="#666">資金</text>
+  
+  <!-- 販売会社 → 投資信託 -->
+  <path d="M250,160 L280,160" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <text x="265" y="150" font-family="Arial, sans-serif" font-size="10" fill="#666">資金</text>
+  
+  <!-- 投資信託 → 投資対象 -->
+  <path d="M420,140 L490,115" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <path d="M420,160 L490,185" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <path d="M420,180 L490,255" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <text x="450" y="130" font-family="Arial, sans-serif" font-size="10" fill="#666">投資</text>
+  
+  <!-- 運用会社 → 投資信託 -->
+  <path d="M350,85 L350,110" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <text x="365" y="100" font-family="Arial, sans-serif" font-size="10" fill="#666">運用指図</text>
+  
+  <!-- 投資信託 → 受託会社 -->
+  <path d="M350,210 L350,235" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <text x="365" y="225" font-family="Arial, sans-serif" font-size="10" fill="#666">保管・管理</text>
+  
+  <!-- マーカー定義 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- 利益の流れ (点線) -->
+  <path d="M490,115 Q420,70 350,70 Q280,70 210,120 Q140,170 80,130" stroke="#f44336" stroke-width="1.5" fill="none" stroke-dasharray="5,3" />
+  <text x="350" y="320" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">実線: 資金の流れ　点線: 利益の還元</text>
+</svg>

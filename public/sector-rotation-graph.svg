@@ -1,0 +1,259 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <!-- 背景 -->
+  <rect width="900" height="600" fill="#f8f9fa" />
+  
+  <!-- タイトル -->
+  <text x="450" y="40" font-family="Arial" font-size="24" font-weight="bold" fill="#333" text-anchor="middle">経済サイクルとセクターローテーション</text>
+  
+  <!-- 円形グラフの背景 -->
+  <circle cx="450" cy="300" r="240" fill="#fff" stroke="#ddd" stroke-width="2" />
+  
+  <!-- 経済サイクルの4つのフェーズ -->
+  <!-- 景気回復初期 (緑) -->
+  <path d="M 450 300 L 450 60 A 240 240 0 0 1 690 300 Z" fill="#a8e6cf" stroke="#fff" stroke-width="2" />
+  
+  <!-- 景気拡大期 (黄緑) -->
+  <path d="M 450 300 L 690 300 A 240 240 0 0 1 450 540 Z" fill="#dcedc1" stroke="#fff" stroke-width="2" />
+  
+  <!-- 景気後退期 (薄オレンジ) -->
+  <path d="M 450 300 L 450 540 A 240 240 0 0 1 210 300 Z" fill="#ffd3b6" stroke="#fff" stroke-width="2" />
+  
+  <!-- 景気底打ち期 (薄赤) -->
+  <path d="M 450 300 L 210 300 A 240 240 0 0 1 450 60 Z" fill="#ffaaa5" stroke="#fff" stroke-width="2" />
+  
+  <!-- 中心円 -->
+  <circle cx="450" cy="300" r="100" fill="#fff" stroke="#ddd" stroke-width="1" />
+  
+  <!-- 経済サイクルの各フェーズラベル -->
+  <!-- 景気回復初期 -->
+  <g transform="translate(570, 180)">
+    <rect x="-10" y="-20" width="140" height="30" rx="5" fill="#a8e6cf" stroke="#333" stroke-width="1" />
+    <text x="60" y="0" font-family="Arial" font-size="16" font-weight="bold" fill="#333" text-anchor="middle">景気回復初期</text>
+    <text x="60" y="25" font-family="Arial" font-size="12" fill="#666" text-anchor="middle">Early Recovery</text>
+  </g>
+  
+  <!-- 景気拡大期 -->
+  <g transform="translate(570, 420)">
+    <rect x="-10" y="-20" width="140" height="30" rx="5" fill="#dcedc1" stroke="#333" stroke-width="1" />
+    <text x="60" y="0" font-family="Arial" font-size="16" font-weight="bold" fill="#333" text-anchor="middle">景気拡大期</text>
+    <text x="60" y="25" font-family="Arial" font-size="12" fill="#666" text-anchor="middle">Full Expansion</text>
+  </g>
+  
+  <!-- 景気後退期 -->
+  <g transform="translate(330, 420)">
+    <rect x="-10" y="-20" width="140" height="30" rx="5" fill="#ffd3b6" stroke="#333" stroke-width="1" />
+    <text x="60" y="0" font-family="Arial" font-size="16" font-weight="bold" fill="#333" text-anchor="middle">景気後退期</text>
+    <text x="60" y="25" font-family="Arial" font-size="12" fill="#666" text-anchor="middle">Recession</text>
+  </g>
+  
+  <!-- 景気底打ち期 -->
+  <g transform="translate(330, 180)">
+    <rect x="-10" y="-20" width="140" height="30" rx="5" fill="#ffaaa5" stroke="#333" stroke-width="1" />
+    <text x="60" y="0" font-family="Arial" font-size="16" font-weight="bold" fill="#333" text-anchor="middle">景気底打ち期</text>
+    <text x="60" y="25" font-family="Arial" font-size="12" fill="#666" text-anchor="middle">Early Recession</text>
+  </g>
+  
+  <!-- 金融政策とインフレ/デフレ表示 -->
+  <g transform="translate(450, 300)">
+    <text x="0" y="-80" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">金融引き締め</text>
+    <text x="0" y="90" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">金融緩和</text>
+    <text x="80" y="0" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">インフレ上昇</text>
+    <text x="-80" y="0" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">インフレ低下</text>
+  </g>
+  
+  <!-- 各セクターの配置 -->
+  <!-- 景気回復初期のセクター -->
+  <g transform="translate(520, 140)">
+    <circle cx="0" cy="0" r="35" fill="#4CAF50" stroke="#fff" stroke-width="2" />
+    <text x="0" y="-5" font-family="Arial" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">金融</text>
+    <text x="0" y="15" font-family="Arial" font-size="12" fill="#fff" text-anchor="middle">Financials</text>
+  </g>
+  
+  <g transform="translate(590, 220)">
+    <circle cx="0" cy="0" r="35" fill="#8BC34A" stroke="#fff" stroke-width="2" />
+    <text x="0" y="-5" font-family="Arial" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">一般消費財</text>
+    <text x="0" y="15" font-family="Arial" font-size="12" fill="#fff" text-anchor="middle">Discretionary</text>
+  </g>
+  
+  <!-- 景気拡大期のセクター -->
+  <g transform="translate(590, 380)">
+    <circle cx="0" cy="0" r="35" fill="#2196F3" stroke="#fff" stroke-width="2" />
+    <text x="0" y="-5" font-family="Arial" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">情報技術</text>
+    <text x="0" y="15" font-family="Arial" font-size="12" fill="#fff" text-anchor="middle">Technology</text>
+  </g>
+  
+  <g transform="translate(520, 460)">
+    <circle cx="0" cy="0" r="35" fill="#3F51B5" stroke="#fff" stroke-width="2" />
+    <text x="0" y="-5" font-family="Arial" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">工業</text>
+    <text x="0" y="15" font-family="Arial" font-size="12" fill="#fff" text-anchor="middle">Industrials</text>
+  </g>
+  
+  <!-- 景気後退期のセクター -->
+  <g transform="translate(380, 460)">
+    <circle cx="0" cy="0" r="35" fill="#FF9800" stroke="#fff" stroke-width="2" />
+    <text x="0" y="-5" font-family="Arial" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">エネルギー</text>
+    <text x="0" y="15" font-family="Arial" font-size="12" fill="#fff" text-anchor="middle">Energy</text>
+  </g>
+  
+  <g transform="translate(310, 380)">
+    <circle cx="0" cy="0" r="35" fill="#FF5722" stroke="#fff" stroke-width="2" />
+    <text x="0" y="-5" font-family="Arial" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">素材</text>
+    <text x="0" y="15" font-family="Arial" font-size="12" fill="#fff" text-anchor="middle">Materials</text>
+  </g>
+  
+  <!-- 景気底打ち期のセクター -->
+  <g transform="translate(310, 220)">
+    <circle cx="0" cy="0" r="35" fill="#9C27B0" stroke="#fff" stroke-width="2" />
+    <text x="0" y="-5" font-family="Arial" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">公共事業</text>
+    <text x="0" y="15" font-family="Arial" font-size="12" fill="#fff" text-anchor="middle">Utilities</text>
+  </g>
+  
+  <g transform="translate(380, 140)">
+    <circle cx="0" cy="0" r="35" fill="#E91E63" stroke="#fff" stroke-width="2" />
+    <text x="0" y="-5" font-family="Arial" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">生活必需品</text>
+    <text x="0" y="15" font-family="Arial" font-size="12" fill="#fff" text-anchor="middle">Staples</text>
+  </g>
+  
+  <g transform="translate(450, 100)">
+    <circle cx="0" cy="0" r="35" fill="#673AB7" stroke="#fff" stroke-width="2" />
+    <text x="0" y="-5" font-family="Arial" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">ヘルスケア</text>
+    <text x="0" y="15" font-family="Arial" font-size="12" fill="#fff" text-anchor="middle">Healthcare</text>
+  </g>
+  
+  <!-- 経済サイクルの回転方向を示す矢印 -->
+  <g fill="none" stroke="#333" stroke-width="2" stroke-dasharray="5,3">
+    <path d="M 450 300 m 0 -270 a 270 270 0 1 1 -1 0" marker-end="url(#arrowhead)" />
+  </g>
+  
+  <!-- 矢印のマーカー定義 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- 経済指標説明 -->
+  <g transform="translate(50, 25)">
+    <rect x="0" y="0" width="230" height="250" rx="5" fill="#fff" stroke="#ddd" stroke-width="1" />
+    <text x="15" y="25" font-family="Arial" font-size="16" font-weight="bold" fill="#333">経済サイクル指標</text>
+    <line x1="15" y1="35" x2="215" y2="35" stroke="#ddd" stroke-width="1" />
+    
+    <!-- 景気後退期 -->
+    <rect x="15" y="45" width="15" height="15" fill="#ffaaa5" />
+    <text x="40" y="58" font-family="Arial" font-size="14" font-weight="bold" fill="#333">景気底打ち期</text>
+    <text x="30" y="75" font-family="Arial" font-size="12" fill="#666">• GDP: マイナス成長</text>
+    <text x="30" y="95" font-family="Arial" font-size="12" fill="#666">• 雇用: 失業率上昇</text>
+    <text x="30" y="115" font-family="Arial" font-size="12" fill="#666">• 金利: 低下傾向</text>
+    
+    <!-- 景気回復初期 -->
+    <rect x="15" y="130" width="15" height="15" fill="#a8e6cf" />
+    <text x="40" y="143" font-family="Arial" font-size="14" font-weight="bold" fill="#333">景気回復初期</text>
+    <text x="30" y="160" font-family="Arial" font-size="12" fill="#666">• GDP: 緩やかな成長</text>
+    <text x="30" y="180" font-family="Arial" font-size="12" fill="#666">• 雇用: 失業率改善傾向</text>
+    <text x="30" y="200" font-family="Arial" font-size="12" fill="#666">• 金利: 低位安定/上昇開始</text>
+    <text x="30" y="220" font-family="Arial" font-size="12" fill="#666">• 物価: インフレ率上昇傾向</text>
+  </g>
+  
+  <g transform="translate(50, 290)">
+    <rect x="0" y="0" width="230" height="250" rx="5" fill="#fff" stroke="#ddd" stroke-width="1" />
+    
+    <!-- 景気拡大期 -->
+    <rect x="15" y="25" width="15" height="15" fill="#dcedc1" />
+    <text x="40" y="38" font-family="Arial" font-size="14" font-weight="bold" fill="#333">景気拡大期</text>
+    <text x="30" y="55" font-family="Arial" font-size="12" fill="#666">• GDP: 堅調な成長</text>
+    <text x="30" y="75" font-family="Arial" font-size="12" fill="#666">• 雇用: 完全雇用に近づく</text>
+    <text x="30" y="95" font-family="Arial" font-size="12" fill="#666">• 金利: 上昇基調</text>
+    <text x="30" y="115" font-family="Arial" font-size="12" fill="#666">• 物価: インフレ進行</text>
+    
+    <!-- 景気後退期 -->
+    <rect x="15" y="130" width="15" height="15" fill="#ffd3b6" />
+    <text x="40" y="143" font-family="Arial" font-size="14" font-weight="bold" fill="#333">景気後退期</text>
+    <text x="30" y="160" font-family="Arial" font-size="12" fill="#666">• GDP: 成長鈍化/マイナス</text>
+    <text x="30" y="180" font-family="Arial" font-size="12" fill="#666">• 雇用: 失業率上昇開始</text>
+    <text x="30" y="200" font-family="Arial" font-size="12" fill="#666">• 金利: ピークアウト/低下</text>
+    <text x="30" y="220" font-family="Arial" font-size="12" fill="#666">• 物価: インフレ鈍化</text>
+  </g>
+  
+  <!-- セクターローテーション戦略説明 -->
+  <g transform="translate(620, 25)">
+    <rect x="0" y="0" width="230" height="515" rx="5" fill="#fff" stroke="#ddd" stroke-width="1" />
+    <text x="15" y="25" font-family="Arial" font-size="16" font-weight="bold" fill="#333">セクターローテーション戦略</text>
+    <line x1="15" y1="35" x2="215" y2="35" stroke="#ddd" stroke-width="1" />
+    
+    <text x="15" y="55" font-family="Arial" font-size="12" fill="#666">経済サイクルの各段階で、異なる</text>
+    <text x="15" y="70" font-family="Arial" font-size="12" fill="#666">セクターがアウトパフォームする</text>
+    <text x="15" y="85" font-family="Arial" font-size="12" fill="#666">傾向があります。</text>
+    
+    <!-- 景気底打ち期のセクター -->
+    <rect x="15" y="105" width="15" height="15" fill="#ffaaa5" />
+    <text x="40" y="118" font-family="Arial" font-size="14" font-weight="bold" fill="#333">景気底打ち期</text>
+    <g transform="translate(30, 125)">
+      <circle cx="0" cy="0" r="8" fill="#9C27B0" />
+      <text x="15" y="4" font-family="Arial" font-size="12" fill="#666">公共事業</text>
+    </g>
+    <g transform="translate(30, 145)">
+      <circle cx="0" cy="0" r="8" fill="#E91E63" />
+      <text x="15" y="4" font-family="Arial" font-size="12" fill="#666">生活必需品</text>
+    </g>
+    <g transform="translate(30, 165)">
+      <circle cx="0" cy="0" r="8" fill="#673AB7" />
+      <text x="15" y="4" font-family="Arial" font-size="12" fill="#666">ヘルスケア</text>
+    </g>
+    
+    <!-- 景気回復初期のセクター -->
+    <rect x="15" y="195" width="15" height="15" fill="#a8e6cf" />
+    <text x="40" y="208" font-family="Arial" font-size="14" font-weight="bold" fill="#333">景気回復初期</text>
+    <g transform="translate(30, 215)">
+      <circle cx="0" cy="0" r="8" fill="#4CAF50" />
+      <text x="15" y="4" font-family="Arial" font-size="12" fill="#666">金融</text>
+    </g>
+    <g transform="translate(30, 235)">
+      <circle cx="0" cy="0" r="8" fill="#8BC34A" />
+      <text x="15" y="4" font-family="Arial" font-size="12" fill="#666">一般消費財</text>
+    </g>
+    <g transform="translate(30, 255)">
+      <circle cx="0" cy="0" r="8" fill="#3F51B5" />
+      <text x="15" y="4" font-family="Arial" font-size="12" fill="#666">不動産</text>
+    </g>
+    
+    <!-- 景気拡大期のセクター -->
+    <rect x="15" y="285" width="15" height="15" fill="#dcedc1" />
+    <text x="40" y="298" font-family="Arial" font-size="14" font-weight="bold" fill="#333">景気拡大期</text>
+    <g transform="translate(30, 305)">
+      <circle cx="0" cy="0" r="8" fill="#2196F3" />
+      <text x="15" y="4" font-family="Arial" font-size="12" fill="#666">情報技術</text>
+    </g>
+    <g transform="translate(30, 325)">
+      <circle cx="0" cy="0" r="8" fill="#3F51B5" />
+      <text x="15" y="4" font-family="Arial" font-size="12" fill="#666">工業</text>
+    </g>
+    <g transform="translate(30, 345)">
+      <circle cx="0" cy="0" r="8" fill="#009688" />
+      <text x="15" y="4" font-family="Arial" font-size="12" fill="#666">通信サービス</text>
+    </g>
+    
+    <!-- 景気後退期のセクター -->
+    <rect x="15" y="375" width="15" height="15" fill="#ffd3b6" />
+    <text x="40" y="388" font-family="Arial" font-size="14" font-weight="bold" fill="#333">景気後退期</text>
+    <g transform="translate(30, 395)">
+      <circle cx="0" cy="0" r="8" fill="#FF9800" />
+      <text x="15" y="4" font-family="Arial" font-size="12" fill="#666">エネルギー</text>
+    </g>
+    <g transform="translate(30, 415)">
+      <circle cx="0" cy="0" r="8" fill="#FF5722" />
+      <text x="15" y="4" font-family="Arial" font-size="12" fill="#666">素材</text>
+    </g>
+    <g transform="translate(30, 435)">
+      <circle cx="0" cy="0" r="8" fill="#795548" />
+      <text x="15" y="4" font-family="Arial" font-size="12" fill="#666">ユーティリティ</text>
+    </g>
+    
+    <text x="15" y="465" font-family="Arial" font-size="12" font-style="italic" fill="#666">※セクターのパフォーマンスは一般的な</text>
+    <text x="15" y="480" font-family="Arial" font-size="12" font-style="italic" fill="#666">傾向であり、必ずしも毎回同じ動きにな</text>
+    <text x="15" y="495" font-family="Arial" font-size="12" font-style="italic" fill="#666">るとは限りません。</text>
+  </g>
+  
+  <!-- 経済サイクルローテーション説明 -->
+  <text x="450" y="565" font-family="Arial" font-size="16" font-weight="bold" fill="#333" text-anchor="middle">セクター投資のタイミングを計る経済サイクル指標</text>
+  <text x="450" y="585" font-family="Arial" font-size="14" fill="#555" text-anchor="middle">GDP成長率、景気先行指数、製造業PMI、金利動向、イールドカーブ、企業収益見通し</text>
+</svg>

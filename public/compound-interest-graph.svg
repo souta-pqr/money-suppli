@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+  <!-- 背景 -->
+  <rect width="600" height="300" fill="#f8f9fa" rx="5" ry="5" />
+  
+  <!-- タイトル -->
+  <text x="300" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">毎月1万円を投資した場合の30年後の資産額</text>
+  
+  <!-- Y軸 -->
+  <line x1="80" y1="250" x2="80" y2="50" stroke="#666" stroke-width="1" />
+  <!-- Y軸目盛り -->
+  <line x1="77" y1="250" x2="83" y2="250" stroke="#666" stroke-width="1" />
+  <text x="70" y="255" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="#666">0</text>
+  
+  <line x1="77" y1="210" x2="83" y2="210" stroke="#666" stroke-width="1" />
+  <text x="70" y="215" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="#666">200</text>
+  
+  <line x1="77" y1="170" x2="83" y2="170" stroke="#666" stroke-width="1" />
+  <text x="70" y="175" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="#666">400</text>
+  
+  <line x1="77" y1="130" x2="83" y2="130" stroke="#666" stroke-width="1" />
+  <text x="70" y="135" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="#666">600</text>
+  
+  <line x1="77" y1="90" x2="83" y2="90" stroke="#666" stroke-width="1" />
+  <text x="70" y="95" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="#666">800</text>
+  
+  <line x1="77" y1="50" x2="83" y2="50" stroke="#666" stroke-width="1" />
+  <text x="70" y="55" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="#666">1000</text>
+  
+  <!-- X軸 -->
+  <line x1="80" y1="250" x2="550" y2="250" stroke="#666" stroke-width="1" />
+  <!-- X軸目盛り -->
+  <line x1="80" y1="250" x2="80" y2="253" stroke="#666" stroke-width="1" />
+  <text x="80" y="265" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666">0</text>
+  
+  <line x1="173" y1="250" x2="173" y2="253" stroke="#666" stroke-width="1" />
+  <text x="173" y="265" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666">10</text>
+  
+  <line x1="267" y1="250" x2="267" y2="253" stroke="#666" stroke-width="1" />
+  <text x="267" y="265" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666">20</text>
+  
+  <line x1="360" y1="250" x2="360" y2="253" stroke="#666" stroke-width="1" />
+  <text x="360" y="265" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666">30</text>
+  
+  <line x1="453" y1="250" x2="453" y2="253" stroke="#666" stroke-width="1" />
+  <text x="453" y="265" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666">40</text>
+  
+  <line x1="547" y1="250" x2="547" y2="253" stroke="#666" stroke-width="1" />
+  <text x="547" y="265" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666">50</text>
+
+  <!-- 軸ラベル -->
+  <text x="310" y="285" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">経過年数</text>
+  <text x="30" y="150" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333" transform="rotate(-90, 30, 150)">資産額（万円）</text>
+  
+  <!-- グラフ線 - 年利0% (単純積立) -->
+  <polyline 
+    points="
+      80,250
+      95,246
+      110,242
+      125,238
+      140,234
+      155,230
+      170,226
+      185,222
+      200,218
+      215,214
+      230,210
+      245,206
+      260,202
+      275,198
+      290,194
+      305,190
+      320,186
+      335,182
+      350,178
+      365,174
+      380,170
+      395,166
+      410,162
+      425,158
+      440,154
+      455,150
+      470,146
+      485,142
+      500,138
+      515,134
+      530,130
+      545,126
+    "
+    fill="none" stroke="#9e9e9e" stroke-width="2" />
+  
+  <!-- グラフ線 - 年利3% (複利) -->
+  <polyline 
+    points="
+      80,250
+      95,245.5
+      110,240.8
+      125,235.9
+      140,230.9
+      155,225.6
+      170,220.1
+      185,214.4
+      200,208.5
+      215,202.3
+      230,195.9
+      245,189.2
+      260,182.2
+      275,174.9
+      290,167.4
+      305,159.5
+      320,151.3
+      335,142.8
+      350,133.9
+      365,124.7
+      380,115.1
+      395,105.1
+      410,94.7
+      425,83.8
+      440,72.5
+      455,60.7
+      470,48.5
+      485,35.7
+      500,22.4
+      515,8.6
+      530,0
+      545,0
+    "
+    fill="none" stroke="#4caf50" stroke-width="2" />
+  
+  <!-- グラフ線 - 年利5% (複利) -->
+  <polyline 
+    points="
+      80,250
+      95,245
+      110,239.8
+      125,234.3
+      140,228.6
+      155,222.5
+      170,216.1
+      185,209.4
+      200,202.3
+      215,194.8
+      230,186.9
+      245,178.6
+      260,169.9
+      275,160.7
+      290,151.1
+      305,140.9
+      320,130.3
+      335,119.1
+      350,107.3
+      365,95
+      380,82
+      395,68.4
+      410,54.1
+      425,39
+      440,23.2
+      455,6.6
+      470,0
+      485,0
+      500,0
+      515,0
+      530,0
+      545,0
+    "
+    fill="none" stroke="#1976d2" stroke-width="2" />
+  
+  <!-- 凡例 -->
+  <rect x="380" y="60" width="15" height="2" fill="#9e9e9e" />
+  <text x="400" y="65" font-family="Arial, sans-serif" font-size="12" fill="#333">年利0%（単なる貯蓄）: 360万円</text>
+  
+  <rect x="380" y="80" width="15" height="2" fill="#4caf50" />
+  <text x="400" y="85" font-family="Arial, sans-serif" font-size="12" fill="#333">年利3%（複利）: 約580万円</text>
+  
+  <rect x="380" y="100" width="15" height="2" fill="#1976d2" />
+  <text x="400" y="105" font-family="Arial, sans-serif" font-size="12" fill="#333">年利5%（複利）: 約830万円</text>
+</svg>

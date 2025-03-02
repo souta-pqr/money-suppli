@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#f8f9fa" />
+  
+  <!-- タイトル -->
+  <text x="400" y="30" font-family="Arial" font-size="20" font-weight="bold" fill="#333" text-anchor="middle">分散投資の効果</text>
+  
+  <!-- 左のグラフ: 個別資産の値動き -->
+  <g transform="translate(120, 80)">
+    <!-- グラフタイトル -->
+    <text x="125" y="-20" font-family="Arial" font-size="16" fill="#333" text-anchor="middle">個別資産の値動き</text>
+    
+    <!-- 軸 -->
+    <g stroke="#333" stroke-width="1.5">
+      <line x1="0" y1="300" x2="250" y2="300" /> <!-- X軸 -->
+      <line x1="0" y1="0" x2="0" y2="300" /> <!-- Y軸 -->
+    </g>
+    
+    <!-- X軸目盛りとラベル -->
+    <g font-family="Arial" font-size="12" fill="#666">
+      <text x="0" y="315" text-anchor="middle">0</text>
+      <text x="50" y="315" text-anchor="middle">1</text>
+      <text x="100" y="315" text-anchor="middle">2</text>
+      <text x="150" y="315" text-anchor="middle">3</text>
+      <text x="200" y="315" text-anchor="middle">4</text>
+      <text x="250" y="315" text-anchor="middle">5</text>
+      <text x="125" y="335" text-anchor="middle">時間（年）</text>
+    </g>
+    
+    <!-- Y軸目盛りとラベル -->
+    <g font-family="Arial" font-size="12" fill="#666">
+      <text x="-5" y="300" text-anchor="end">-20%</text>
+      <text x="-5" y="225" text-anchor="end">0%</text>
+      <text x="-5" y="150" text-anchor="end">20%</text>
+      <text x="-5" y="75" text-anchor="end">40%</text>
+      <text x="-5" y="0" text-anchor="end">60%</text>
+      <text x="-25" y="150" text-anchor="middle" transform="rotate(-90, -25, 150)">リターン</text>
+    </g>
+    
+    <!-- グリッド線 -->
+    <g stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3,3">
+      <line x1="0" y1="225" x2="250" y2="225" />
+      <line x1="0" y1="150" x2="250" y2="150" />
+      <line x1="0" y1="75" x2="250" y2="75" />
+      <line x1="0" y1="0" x2="250" y2="0" />
+      
+      <line x1="50" y1="0" x2="50" y2="300" />
+      <line x1="100" y1="0" x2="100" y2="300" />
+      <line x1="150" y1="0" x2="150" y2="300" />
+      <line x1="200" y1="0" x2="200" y2="300" />
+      <line x1="250" y1="0" x2="250" y2="300" />
+    </g>
+    
+    <!-- 資産A（青) -->
+    <polyline points="0,225 50,180 100,140 150,220 200,160 250,100" 
+        fill="none" stroke="#2196F3" stroke-width="3" />
+    
+    <!-- 資産B（赤) -->
+    <polyline points="0,225 50,270 100,210 150,160 200,260 250,190" 
+        fill="none" stroke="#F44336" stroke-width="3" />
+    
+    <!-- 凡例 -->
+    <g transform="translate(10, 10)">
+      <rect x="0" y="0" width="15" height="15" fill="#2196F3" />
+      <text x="20" y="12" font-family="Arial" font-size="12" fill="#333">資産A</text>
+      
+      <rect x="0" y="25" width="15" height="15" fill="#F44336" />
+      <text x="20" y="37" font-family="Arial" font-size="12" fill="#333">資産B</text>
+    </g>
+  </g>
+  
+  <!-- 右のグラフ: 分散投資効果 -->
+  <g transform="translate(470, 80)">
+    <!-- グラフタイトル -->
+    <text x="125" y="-20" font-family="Arial" font-size="16" fill="#333" text-anchor="middle">分散投資ポートフォリオの効果</text>
+    
+    <!-- 軸 -->
+    <g stroke="#333" stroke-width="1.5">
+      <line x1="0" y1="300" x2="250" y2="300" /> <!-- X軸 -->
+      <line x1="0" y1="0" x2="0" y2="300" /> <!-- Y軸 -->
+    </g>
+    
+    <!-- X軸目盛りとラベル -->
+    <g font-family="Arial" font-size="12" fill="#666">
+      <text x="0" y="315" text-anchor="middle">0</text>
+      <text x="50" y="315" text-anchor="middle">1</text>
+      <text x="100" y="315" text-anchor="middle">2</text>
+      <text x="150" y="315" text-anchor="middle">3</text>
+      <text x="200" y="315" text-anchor="middle">4</text>
+      <text x="250" y="315" text-anchor="middle">5</text>
+      <text x="125" y="335" text-anchor="middle">時間（年）</text>
+    </g>
+    
+    <!-- Y軸目盛りとラベル -->
+    <g font-family="Arial" font-size="12" fill="#666">
+      <text x="-5" y="300" text-anchor="end">-20%</text>
+      <text x="-5" y="225" text-anchor="end">0%</text>
+      <text x="-5" y="150" text-anchor="end">20%</text>
+      <text x="-5" y="75" text-anchor="end">40%</text>
+      <text x="-5" y="0" text-anchor="end">60%</text>
+      <text x="-25" y="150" text-anchor="middle" transform="rotate(-90, -25, 150)">リターン</text>
+    </g>
+    
+    <!-- グリッド線 -->
+    <g stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3,3">
+      <line x1="0" y1="225" x2="250" y2="225" />
+      <line x1="0" y1="150" x2="250" y2="150" />
+      <line x1="0" y1="75" x2="250" y2="75" />
+      <line x1="0" y1="0" x2="250" y2="0" />
+      
+      <line x1="50" y1="0" x2="50" y2="300" />
+      <line x1="100" y1="0" x2="100" y2="300" />
+      <line x1="150" y1="0" x2="150" y2="300" />
+      <line x1="200" y1="0" x2="200" y2="300" />
+      <line x1="250" y1="0" x2="250" y2="300" />
+    </g>
+    
+    <!-- 資産A（青) -->
+    <polyline points="0,225 50,180 100,140 150,220 200,160 250,100" 
+        fill="none" stroke="#2196F3" stroke-width="2" stroke-opacity="0.3" />
+    
+    <!-- 資産B（赤) -->
+    <polyline points="0,225 50,270 100,210 150,160 200,260 250,190" 
+        fill="none" stroke="#F44336" stroke-width="2" stroke-opacity="0.3" />
+    
+    <!-- 分散ポートフォリオ（紫) -->
+    <polyline points="0,225 50,225 100,175 150,190 200,210 250,145" 
+        fill="none" stroke="#673AB7" stroke-width="4" />
+    
+    <!-- 分散ポートフォリオの変動幅を示す領域 -->
+    <path d="M0,225 L50,225 L100,175 L150,190 L200,210 L250,145 L250,300 L0,300 Z" 
+          fill="#673AB7" fill-opacity="0.1" />
+    
+    <!-- 凡例 -->
+    <g transform="translate(10, 10)">
+      <rect x="0" y="0" width="15" height="15" fill="#2196F3" fill-opacity="0.3" />
+      <text x="20" y="12" font-family="Arial" font-size="12" fill="#333">資産A</text>
+      
+      <rect x="0" y="25" width="15" height="15" fill="#F44336" fill-opacity="0.3" />
+      <text x="20" y="37" font-family="Arial" font-size="12" fill="#333">資産B</text>
+      
+      <rect x="0" y="50" width="15" height="15" fill="#673AB7" />
+      <text x="20" y="62" font-family="Arial" font-size="12" fill="#333">分散ポートフォリオ</text>
+    </g>
+  </g>
+  
+  <!-- 下部の説明文 -->
+  <g transform="translate(400, 430)" text-anchor="middle">
+    <text x="0" y="0" font-family="Arial" font-size="14" font-weight="bold" fill="#333">分散投資のメリット</text>
+    <text x="0" y="25" font-family="Arial" font-size="12" fill="#555">・相関の低い資産を組み合わせることで、全体のリスクを低減</text>
+    <text x="0" y="45" font-family="Arial" font-size="12" fill="#555">・個別の資産が下落しても、ポートフォリオ全体への影響を抑制</text>
+    <text x="0" y="65" font-family="Arial" font-size="12" fill="#555">・長期的には安定したリターンが期待できる</text>
+  </g>
+</svg>

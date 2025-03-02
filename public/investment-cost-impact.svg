@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#f8f9fa" />
+  
+  <!-- タイトル -->
+  <text x="400" y="30" font-family="Arial" font-size="20" font-weight="bold" fill="#333" text-anchor="middle">投資コストが長期リターンに与える影響</text>
+  <text x="400" y="55" font-family="Arial" font-size="14" fill="#666" text-anchor="middle">初期投資額100万円を年利5%で30年運用した場合</text>
+  
+  <!-- グラフ領域 -->
+  <g transform="translate(75, 80)">
+    <!-- 軸 -->
+    <g stroke="#333" stroke-width="2">
+      <line x1="0" y1="350" x2="650" y2="350" /> <!-- X軸 -->
+      <line x1="0" y1="350" x2="0" y2="20" /> <!-- Y軸 -->
+    </g>
+    
+    <!-- X軸目盛りとラベル -->
+    <g font-family="Arial" font-size="12" fill="#666">
+      <text x="0" y="370" text-anchor="middle">0</text>
+      <text x="130" y="370" text-anchor="middle">5</text>
+      <text x="260" y="370" text-anchor="middle">10</text>
+      <text x="390" y="370" text-anchor="middle">15</text>
+      <text x="520" y="370" text-anchor="middle">20</text>
+      <text x="650" y="370" text-anchor="middle">25</text>
+      <text x="325" y="395" text-anchor="middle" font-size="14">運用期間（年）</text>
+    </g>
+    
+    <!-- Y軸目盛りとラベル -->
+    <g font-family="Arial" font-size="12" fill="#666">
+      <text x="-5" y="350" text-anchor="end">100万円</text>
+      <text x="-5" y="290" text-anchor="end">150万円</text>
+      <text x="-5" y="230" text-anchor="end">200万円</text>
+      <text x="-5" y="170" text-anchor="end">250万円</text>
+      <text x="-5" y="110" text-anchor="end">350万円</text>
+      <text x="-5" y="50" text-anchor="end">450万円</text>
+      <text x="-40" y="185" text-anchor="middle" transform="rotate(-90, -40, 185)" font-size="14">資産額</text>
+    </g>
+    
+    <!-- グリッド線 -->
+    <g stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3,3">
+      <line x1="0" y1="290" x2="650" y2="290" />
+      <line x1="0" y1="230" x2="650" y2="230" />
+      <line x1="0" y1="170" x2="650" y2="170" />
+      <line x1="0" y1="110" x2="650" y2="110" />
+      <line x1="0" y1="50" x2="650" y2="50" />
+      
+      <line x1="130" y1="20" x2="130" y2="350" />
+      <line x1="260" y1="20" x2="260" y2="350" />
+      <line x1="390" y1="20" x2="390" y2="350" />
+      <line x1="520" y1="20" x2="520" y2="350" />
+      <line x1="650" y1="20" x2="650" y2="350" />
+    </g>
+    
+    <!-- コスト0%の成長曲線 -->
+    <path d="M0,350 L130,330 L260,282 L390,212 L520,122 L650,50" 
+          fill="none" stroke="#4CAF50" stroke-width="3" />
+    
+    <!-- コスト1%の成長曲線 -->
+    <path d="M0,350 L130,334 L260,295 L390,242 L520,175 L650,125" 
+          fill="none" stroke="#2196F3" stroke-width="3" />
+    
+    <!-- コスト2%の成長曲線 -->
+    <path d="M0,350 L130,338 L260,310 L390,272 L520,228 L650,200" 
+          fill="none" stroke="#FF9800" stroke-width="3" />
+    
+    <!-- 説明テキスト -->
+    <g transform="translate(520, 100)">
+      <text x="0" y="-50" font-family="Arial" font-size="16" font-weight="bold" fill="#333">30年後の資産額</text>
+      
+      <rect x="0" y="-30" width="15" height="15" fill="#4CAF50" />
+      <text x="25" y="-17" font-family="Arial" font-size="14" fill="#333">コスト0%: 約432万円</text>
+      
+      <rect x="0" y="-5" width="15" height="15" fill="#2196F3" />
+      <text x="25" y="8" font-family="Arial" font-size="14" fill="#333">コスト1%: 約325万円</text>
+      
+      <rect x="0" y="20" width="15" height="15" fill="#FF9800" />
+      <text x="25" y="33" font-family="Arial" font-size="14" fill="#333">コスト2%: 約242万円</text>
+    </g>
+    
+    <!-- 差額ハイライト -->
+    <g transform="translate(650, 0)">
+      <line x1="0" y1="50" x2="40" y2="50" stroke="#4CAF50" stroke-width="2" />
+      <line x1="0" y1="125" x2="40" y2="125" stroke="#2196F3" stroke-width="2" />
+      <line x1="40" y1="50" x2="40" y2="125" stroke="#333" stroke-width="1" stroke-dasharray="3,3" />
+      <text x="70" y="92" font-family="Arial" font-size="12" fill="#333">約107万円の差</text>
+      
+      <line x1="0" y1="125" x2="40" y2="125" stroke="#2196F3" stroke-width="2" />
+      <line x1="0" y1="200" x2="40" y2="200" stroke="#FF9800" stroke-width="2" />
+      <line x1="40" y1="125" x2="40" y2="200" stroke="#333" stroke-width="1" stroke-dasharray="3,3" />
+      <text x="70" y="167" font-family="Arial" font-size="12" fill="#333">約83万円の差</text>
+      
+      <line x1="0" y1="50" x2="40" y2="50" stroke="#4CAF50" stroke-width="2" />
+      <line x1="0" y1="200" x2="40" y2="200" stroke="#FF9800" stroke-width="2" />
+      <line x1="40" y1="50" x2="40" y2="200" stroke="#333" stroke-width="1" stroke-dasharray="3,3" />
+      <text x="70" y="130" font-family="Arial" font-size="12" font-weight="bold" fill="#333">約190万円の差</text>
+    </g>
+  </g>
+  
+  <!-- 補足説明 -->
+  <g transform="translate(75, 430)">
+    <text x="0" y="20" font-family="Arial" font-size="16" font-weight="bold" fill="#333">投資コストの例:</text>
+    <text x="0" y="45" font-family="Arial" font-size="14" fill="#555">・信託報酬（投資信託の運用管理費用）: 年0.1%〜2.0%</text>
+    <text x="0" y="70" font-family="Arial" font-size="14" fill="#555">・売買手数料: 取引額の0%〜3.3%</text>
+    
+    <text x="425" y="20" font-family="Arial" font-size="16" font-weight="bold" fill="#333">長期投資におけるコスト削減のポイント:</text>
+    <text x="425" y="45" font-family="Arial" font-size="14" fill="#555">・低コスト投資信託・ETFの活用</text>
+    <text x="425" y="70" font-family="Arial" font-size="14" fill="#555">・長期保有による取引回数の削減</text>
+  </g>
+</svg>
