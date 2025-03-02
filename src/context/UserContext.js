@@ -5,7 +5,8 @@ import {
   saveQuizResult as saveQuizResultFirestore, 
   updatePortfolio as updatePortfolioFirestore,
   updateUserName as updateUserNameFirestore,
-  updateSettings as updateSettingsFirestore
+  updateSettings as updateSettingsFirestore,
+  createInitialUserData
 } from '../firebase/firestore';
 
 const UserContext = createContext();
@@ -30,8 +31,10 @@ export const UserProvider = ({ children }) => {
             // 初期ユーザーデータを作成
             const initialData = {
               uid: user.uid,
-              name: user.displayName || 'ゲスト',
-              email: user.email,
+              user: {  // ここを明示的にnested objectとして定義
+                name: user.displayName || 'ゲスト',
+                email: user.email
+              },
               learning: {
                 completedLessons: [],
                 progress: {},
@@ -56,7 +59,7 @@ export const UserProvider = ({ children }) => {
             
             // Firestoreに保存
             try {
-              await setDoc(doc(db, "users", user.uid), initialData);
+              await createInitialUserData(user.uid, initialData);
               setUserData(initialData);
             } catch (error) {
               console.error("Failed to create initial user data:", error);
@@ -64,13 +67,17 @@ export const UserProvider = ({ children }) => {
               setUserData(initialData);
             }
           } else {
+            // データ構造にuserプロパティがないか、nameがない場合は追加
+            if (!data.user) {
+              data.user = { name: user.displayName || 'ゲスト', email: user.email };
+            }
             setUserData(data);
           }
         } catch (error) {
           console.error("Failed to fetch user data:", error);
           // エラーが発生しても最低限のデータを設定して白画面を防ぐ
           setUserData({
-            user: { name: user.displayName || 'ゲスト' },
+            user: { name: user.displayName || 'ゲスト', email: user.email },
             learning: { completedLessons: [] },
             portfolio: { 
               cash: 1000000, 
@@ -102,7 +109,11 @@ export const UserProvider = ({ children }) => {
       setUserData(prev => {
         if (!prev) return prev;
         
-        const newCompletedLessons = [...prev.learning.completedLessons];
+        // learning.completedLessonsがない場合は作成
+        const prevCompletedLessons = prev.learning && prev.learning.completedLessons ? 
+          prev.learning.completedLessons : [];
+        
+        const newCompletedLessons = [...prevCompletedLessons];
         const lessonKey = `${courseId}-${lessonId}`;
         
         if (!newCompletedLessons.includes(lessonKey)) {
@@ -112,7 +123,7 @@ export const UserProvider = ({ children }) => {
         return {
           ...prev,
           learning: {
-            ...prev.learning,
+            ...(prev.learning || {}),
             completedLessons: newCompletedLessons
           }
         };
@@ -133,7 +144,10 @@ export const UserProvider = ({ children }) => {
       setUserData(prev => {
         if (!prev) return prev;
         
-        const quizResults = { ...prev.learning.quizResults };
+        // learning.quizResultsがない場合は作成
+        const quizResults = prev.learning && prev.learning.quizResults ? 
+          {...prev.learning.quizResults} : {};
+        
         const resultKey = `${courseId}-${lessonId}`;
         
         quizResults[resultKey] = {
@@ -145,7 +159,7 @@ export const UserProvider = ({ children }) => {
         return {
           ...prev,
           learning: {
-            ...prev.learning,
+            ...(prev.learning || {}),
             quizResults
           }
         };
@@ -166,12 +180,15 @@ export const UserProvider = ({ children }) => {
       setUserData(prev => {
         if (!prev) return prev;
         
+        const prevHistory = prev.portfolio && prev.portfolio.history ? 
+          prev.portfolio.history : [];
+        
         return {
           ...prev,
           portfolio: {
             ...newPortfolioData,
             history: [
-              ...prev.portfolio.history,
+              ...prevHistory,
               {
                 date: new Date().toISOString(),
                 value: newPortfolioData.cash + newPortfolioData.stocks.reduce((sum, stock) => 
@@ -194,10 +211,17 @@ export const UserProvider = ({ children }) => {
       await updateUserNameFirestore(currentUser.uid, name);
       
       // ローカルステートも更新
-      setUserData(prev => ({
-        ...prev,
-        name
-      }));
+      setUserData(prev => {
+        if (!prev) return prev;
+        
+        return {
+          ...prev,
+          user: {
+            ...(prev.user || {}),
+            name
+          }
+        };
+      });
     } catch (error) {
       console.error("Failed to update user name:", error);
     }
@@ -211,13 +235,17 @@ export const UserProvider = ({ children }) => {
       await updateSettingsFirestore(currentUser.uid, newSettings);
       
       // ローカルステートも更新
-      setUserData(prev => ({
-        ...prev,
-        settings: {
-          ...prev.settings,
-          ...newSettings
-        }
-      }));
+      setUserData(prev => {
+        if (!prev) return prev;
+        
+        return {
+          ...prev,
+          settings: {
+            ...(prev.settings || {}),
+            ...newSettings
+          }
+        };
+      });
     } catch (error) {
       console.error("Failed to update settings:", error);
     }

@@ -20,10 +20,10 @@ const HomePage = () => {
 
   // おすすめのレッスンを取得
   const getRecommendedLessons = () => {
-    if (loading || !userData) return courses[0].lessons.slice(0, 4);
+    if (loading || !userData || !userData.learning) return courses[0].lessons.slice(0, 4);
 
     // 完了していないレッスンを探す
-    const completedLessons = new Set(userData.learning.completedLessons);
+    const completedLessons = new Set(userData.learning.completedLessons || []);
     const notCompletedLessons = [];
 
     courses.forEach(course => {
@@ -54,11 +54,32 @@ const HomePage = () => {
   const progress = calculateOverallProgress();
   const recommendedLessons = getRecommendedLessons();
 
+  // ユーザー名を安全に取得する関数
+  const getUserName = () => {
+    if (loading) return 'ゲスト';
+    if (!userData) return 'ゲスト';
+    if (!userData.user) return 'ゲスト';
+    return userData.user.name || 'ゲスト';
+  };
+
+  // ポートフォリオの安全な取得
+  const getPortfolioData = () => {
+    if (loading || !userData || !userData.portfolio) {
+      return {
+        cash: 1000000,
+        history: []
+      };
+    }
+    return userData.portfolio;
+  };
+
+  const portfolio = getPortfolioData();
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-medium">
-          こんにちは、{loading ? 'ゲスト' : userData.user.name}さん
+          こんにちは、{getUserName()}さん
         </h2>
         <div className="text-sm text-green-600 font-medium">
           今日の市場: {stockMarketData[0].change > 0 ? '↑' : '↓'}
@@ -89,16 +110,16 @@ const HomePage = () => {
           ) : (
             <>
               <p className="text-xl font-bold mb-2">
-                総資産: ¥{userData.portfolio.cash.toLocaleString()}
+                総資産: ¥{portfolio.cash.toLocaleString()}
               </p>
-              {userData.portfolio.history.length > 1 && (
-                <p className={`${userData.portfolio.history[userData.portfolio.history.length - 1].value > 
-                  userData.portfolio.history[userData.portfolio.history.length - 2].value ? 
+              {portfolio.history && portfolio.history.length > 1 && (
+                <p className={`${portfolio.history[portfolio.history.length - 1].value > 
+                  portfolio.history[portfolio.history.length - 2].value ? 
                   'text-green-600' : 'text-red-600'} mb-4`}>
-                  先週比: {userData.portfolio.history[userData.portfolio.history.length - 1].value > 
-                    userData.portfolio.history[userData.portfolio.history.length - 2].value ? '↑' : '↓'}
-                  {Math.abs((userData.portfolio.history[userData.portfolio.history.length - 1].value / 
-                    userData.portfolio.history[userData.portfolio.history.length - 2].value - 1) * 100).toFixed(1)}%
+                  先週比: {portfolio.history[portfolio.history.length - 1].value > 
+                    portfolio.history[portfolio.history.length - 2].value ? '↑' : '↓'}
+                  {Math.abs((portfolio.history[portfolio.history.length - 1].value / 
+                    portfolio.history[portfolio.history.length - 2].value - 1) * 100).toFixed(1)}%
                 </p>
               )}
               <div className="h-32 bg-gray-100 rounded flex items-center justify-center">
